@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-18T10:44:55.689Z</updated>
+  <updated>2017-06-19T12:17:26.097Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,17 +20,14 @@
     <link href="http://yoursite.com/2017/06/18/%E7%BA%A2%E6%A5%BC%E4%B8%80%E6%A2%A6/"/>
     <id>http://yoursite.com/2017/06/18/红楼一梦/</id>
     <published>2017-06-18T08:54:20.000Z</published>
-    <updated>2017-06-18T10:44:55.689Z</updated>
+    <updated>2017-06-19T12:17:26.097Z</updated>
     
-    <content type="html"><![CDATA[<p>###30年红楼聚首</p>
-<p>天尽头，何处有香丘<br>！<a href="/img/葬花吟.JPG">“葬花吟”</a></p>
+    <content type="html"><![CDATA[<h3 id="30年红楼聚首音乐会"><a href="#30年红楼聚首音乐会" class="headerlink" title="30年红楼聚首音乐会"></a>30年红楼聚首音乐会</h3><p>天尽头，何处有香丘<br><img src="/img/葬花吟.JPG" alt="“ 葬花吟 ”"></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;###30年红楼聚首&lt;/p&gt;
-&lt;p&gt;天尽头，何处有香丘&lt;br&gt;！&lt;a href=&quot;/img/葬花吟.JPG&quot;&gt;“葬花吟”&lt;/a&gt;&lt;/p&gt;
-
+      &lt;h3 id=&quot;30年红楼聚首音乐会&quot;&gt;&lt;a href=&quot;#30年红楼聚首音乐会&quot; class=&quot;headerlink&quot; title=&quot;30年红楼聚首音乐会&quot;&gt;&lt;/a&gt;30年红楼聚首音乐会&lt;/h3&gt;&lt;p&gt;天尽头，何处有香丘&lt;br&gt;&lt;img src=&quot;/img/葬花吟.JPG&quot; a
     
     </summary>
     
