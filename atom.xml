@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Anitaxiaofeng blog</title>
+  <subtitle>朝闻道，夕死可矣</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-06-13T08:56:44.884Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>anitaxiaofeng</name>
+    <email>emperor800@126.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux日常小结</title>
+    <link href="http://yoursite.com/2017/06/13/Linux%E6%97%A5%E5%B8%B8%E5%B0%8F%E7%BB%93/"/>
+    <id>http://yoursite.com/2017/06/13/Linux日常小结/</id>
+    <published>2017-06-13T08:38:16.453Z</published>
+    <updated>2017-06-13T08:56:44.884Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux日常小结"><a href="#Linux日常小结" class="headerlink" title="Linux日常小结"></a>Linux日常小结</h1><hr>
+<h2 id="linux常用配置文件"><a href="#linux常用配置文件" class="headerlink" title="linux常用配置文件"></a>linux常用配置文件</h2><p>1、/etc/host.conf配置文件<br>   用于保存系统解析主机名或域名的解析顺序</p>
+<p>2、/etc/hosts<br>   用于存放系统中IP地址和主机对应关系的一个表，在网络环境中使用计算机名或域名时，系统首先会去/etc/host.conf文件中寻找配置，确定解析主机名的顺序</p>
+<p>3、/etc/resolv.conf<br>   用于存放DNS客户端设置文件</p>
+<h2 id="linux常用命令"><a href="#linux常用命令" class="headerlink" title="linux常用命令"></a>linux常用命令</h2><p>1、cat<br>可以显示文件中的内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat file1</div></pre></td></tr></table></figure></p>
+<p>2、echo可以向文件中写内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$echo &quot;test&quot;&gt;&gt;file1</div></pre></td></tr></table></figure></p>
+<p>3、touch可以创建文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$touch file1 file2</div></pre></td></tr></table></figure></p>
+<p>4、ls -l/-a/-al<br>-a显示隐藏文件<br>-l可以查看详细的文件信息</p>
+<p>5、chmod控制文档的存取权限</p>
+<blockquote>
+<ul>
+<li>chmod是权限管理命令change the permissions mode of a file的缩写。。<br>u代表所有者，x代表执行权限。 + 表示增加权限。<br>chmod u+x file.sh 就表示对当前目录下的file.sh文件的所有者增加可执行权限。。。</li>
+<li>在命令行中输入 cd  脚本路径，进入脚本所在目录；<br>使用chmod +x  脚本名命令给文件添加可执行权限；<br>使用sh  脚本名或者  ./脚本名的方法来运行bash脚本</li>
+</ul>
+</blockquote>
+<p>6、ps 用于查看进程</p>
+<blockquote>
+<ul>
+<li>-aux查看所有静态进程<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ps -aux|grep controller</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>7、kill 终止进程号<br>进程号可以用ps查出，9表示无条件终止<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$kill 9 2754</div></pre></td></tr></table></figure></p>
+<h2 id="linux网络配置命令"><a href="#linux网络配置命令" class="headerlink" title="linux网络配置命令"></a>linux网络配置命令</h2><p>1、ifconfig命令</p>
+<blockquote>
+<ul>
+<li><p>ifconfig配置网络接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ifconfig eth0 192.168.1.255 broadcast 192.168.1.255 netmask 255.255.255.0</div></pre></td></tr></table></figure>
+</li>
+<li><p>ifconfig配置虚拟网络接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ifconfig eth1:0 192.168.1.250 hw ether 00:11:00:00:11:44 netmask 255.255.255.0 broadcast 192.168.1.255 up</div><div class="line">ifconfig eth1:1 192.168.1.249 hw ether 00:11:00:00:11:55 netmask 255.255.255.0 broadcast 192.168.1.255 up</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>解说：上面是为eth1的网络接口，设置了两个虚拟接口，每个接口都有自己的物理地址、IP地址…指定时，要为每个虚拟网卡指定不同的物理地址</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Linux日常小结&quot;&gt;&lt;a href=&quot;#Linux日常小结&quot; class=&quot;headerlink&quot; title=&quot;Linux日常小结&quot;&gt;&lt;/a&gt;Linux日常小结&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;linux常用配置文件&quot;&gt;&lt;a href=&quot;#linux常用配置
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+    
+      <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机网络知识小结</title>
+    <link href="http://yoursite.com/2016/09/20/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9F%A5%E8%AF%86%E5%B0%8F%E7%BB%93/"/>
+    <id>http://yoursite.com/2016/09/20/计算机网络知识小结/</id>
+    <published>2016-09-20T15:34:57.042Z</published>
+    <updated>2016-10-21T14:35:23.153Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="随笔啦"><a href="#随笔啦" class="headerlink" title="随笔啦"></a>随笔啦</h2><p>现在主要是在研究SDN,所以计算机网络要特别了解，慢慢学吧，每天都要看，不要停止，我相信我会成功！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;随笔啦&quot;&gt;&lt;a href=&quot;#随笔啦&quot; class=&quot;headerlink&quot; title=&quot;随笔啦&quot;&gt;&lt;/a&gt;随笔啦&lt;/h2&gt;&lt;p&gt;现在主要是在研究SDN,所以计算机网络要特别了解，慢慢学吧，每天都要看，不要停止，我相信我会成功！&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="计算机网络" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="网络" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="协议" scheme="http://yoursite.com/tags/%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux小记</title>
+    <link href="http://yoursite.com/2016/09/16/Linux%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://yoursite.com/2016/09/16/Linux小记/</id>
+    <published>2016-09-16T08:04:19.894Z</published>
+    <updated>2017-06-13T08:56:46.902Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Linux文件系统"><a href="#Linux文件系统" class="headerlink" title="Linux文件系统"></a>Linux文件系统</h1><ol>
+<li>普通文件，分为纯文本和二进制。</li>
+<li>目录文件，存储文件的地方。</li>
+<li>链接文件，指向同一个文件或目录的的文件。</li>
+<li>设备文件，分为块设备和字符设备。</li>
+<li>管道文件，提供进程间通信</li>
+<li>套接字文件，与网络通信有关<br><img src="/img/Linux小记1.jpg" alt="Linux目录结构"><h1 id="Linux-Shell及命令"><a href="#Linux-Shell及命令" class="headerlink" title="Linux Shell及命令"></a>Linux Shell及命令</h1>shell是系统的用户界面，提供了用户与内核进行交互操作的一种接口。shell接收用户输入的命令并把它送入内核去执行，是一个命令解释器。shell 有很多类型，这里推荐BASH。BASH是GNU的Bourne Again Shell，是GNU操作系统上默认的shell,大部分linux发行套件使用的都是这种shell。<br><img src="/img/Linux小记2.jpg" alt="Linux Shell 命令"></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Linux文件系统&quot;&gt;&lt;a href=&quot;#Linux文件系统&quot; class=&quot;headerlink&quot; title=&quot;Linux文件系统&quot;&gt;&lt;/a&gt;Linux文件系统&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;普通文件，分为纯文本和二进制。&lt;/li&gt;
+&lt;li&gt;目录文件，存储文件的地
+    
+    </summary>
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+    
+      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+    
+      <category term="知识" scheme="http://yoursite.com/tags/%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>海上生明月</title>
+    <link href="http://yoursite.com/2016/09/15/%E6%B5%B7%E4%B8%8A%E7%94%9F%E6%98%8E%E6%9C%88/"/>
+    <id>http://yoursite.com/2016/09/15/海上生明月/</id>
+    <published>2016-09-15T09:32:25.267Z</published>
+    <updated>2017-06-13T08:46:21.851Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="随想"><a href="#随想" class="headerlink" title="随想"></a>随想</h2><p>今天是2016年的中秋节，在今天开始我真正第一次的博客记录，总想着让自己变成技术大神，可是发现自己要学习的东西实在是太多了，自己真的是什么都不懂，不能再浑浑噩噩的度过每一天，希望在研究生的日子中，能不断的看书，不断的扩展自己的知识，希望我能用好这个平台，记录好自己学习状态，每天看书，锻炼，我知道我技术还差的太远，这个博客只是记录我自己的知识，坚持就是胜利！</p>
+<h2 id="简书"><a href="#简书" class="headerlink" title="简书"></a>简书</h2><blockquote>
+<p>一盏灯， 一片昏黄； 一简书， 一杯淡茶。 守着那一份淡定，品读属于自己的寂寞。保持淡定， 才能欣赏到最美丽的风景！保持淡定，人生从此不再寂寞。</p>
+</blockquote>
+<p>   最后送诗一首<br></p>
+<blockquote>
+<p>  望月怀远<br><br>        唐 张九龄<br><br>海上生明月，天涯共此时。<br>情人怨遥夜，竟夕起相思。<br>灭烛怜光满，披衣觉露滋。<br>不堪盈手赠，还寝梦佳期。</p>
+</blockquote>
+<p><img src="/img/阿姐1.jpg" alt="“  偶像送祝福  ”"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;随想&quot;&gt;&lt;a href=&quot;#随想&quot; class=&quot;headerlink&quot; title=&quot;随想&quot;&gt;&lt;/a&gt;随想&lt;/h2&gt;&lt;p&gt;今天是2016年的中秋节，在今天开始我真正第一次的博客记录，总想着让自己变成技术大神，可是发现自己要学习的东西实在是太多了，自己真的是什么都
+    
+    </summary>
+    
+      <category term="随笔" scheme="http://yoursite.com/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+      <category term="记录" scheme="http://yoursite.com/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+      <category term="诗" scheme="http://yoursite.com/tags/%E8%AF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2016/08/05/hello-world/"/>
+    <id>http://yoursite.com/2016/08/05/hello-world/</id>
+    <published>2016-08-05T02:16:15.408Z</published>
+    <updated>2016-08-05T02:16:15.408Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
