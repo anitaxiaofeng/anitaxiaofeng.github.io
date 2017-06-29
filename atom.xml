@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-29T14:12:30.974Z</updated>
+  <updated>2017-06-29T14:19:16.364Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,9 @@
     <link href="http://yoursite.com/2017/06/29/node.js%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     <id>http://yoursite.com/2017/06/29/node.js知识点/</id>
     <published>2017-06-29T14:10:38.613Z</published>
-    <updated>2017-06-29T14:12:30.974Z</updated>
+    <updated>2017-06-29T14:19:16.364Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="node-js知识点"><a href="#node-js知识点" class="headerlink" title="node.js知识点"></a>node.js知识点</h1><p>标签（空格分隔）： node.js</p>
-<hr>
+    <content type="html"><![CDATA[<h1 id="node-js知识点"><a href="#node-js知识点" class="headerlink" title="node.js知识点"></a>node.js知识点</h1><hr>
 <p>1、路由调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line">app.get(&apos;/&apos;, function (req, res) &#123;</div><div class="line">  res.send(&apos;Hello world!&apos;);</div><div class="line">&#125;);</div><div class="line">app.listen(3000);</div></pre></td></tr></table></figure></p>
 <p>在routes/index.js中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">module.exports=function(app)&#123;</div><div class="line">     app.get(&apos;/&apos;, function (req, res) &#123;</div><div class="line">  res.render(&apos;index&apos;,&#123;title:&apos;Express&apos;&#125;);</div><div class="line">&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>然后在app.js中引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var express=require(&apos;express&apos;);</div><div class="line">var app=express();</div><div class="line">var routes=require(&apos;./routes/index&apos;);</div><div class="line">routes(app);</div></pre></td></tr></table></figure></p>
@@ -53,9 +52,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;node-js知识点&quot;&gt;&lt;a href=&quot;#node-js知识点&quot; class=&quot;headerlink&quot; title=&quot;node.js知识点&quot;&gt;&lt;/a&gt;node.js知识点&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： node.js&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;1、路由调用&lt;b
+      &lt;h1 id=&quot;node-js知识点&quot;&gt;&lt;a href=&quot;#node-js知识点&quot; class=&quot;headerlink&quot; title=&quot;node.js知识点&quot;&gt;&lt;/a&gt;node.js知识点&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;1、路由调用&lt;br&gt;&lt;figure class=&quot;highligh
     
     </summary>
     

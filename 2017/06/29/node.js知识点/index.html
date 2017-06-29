@@ -11,22 +11,22 @@
     
 
     
-    <meta name="description" content="node.js知识点标签（空格分隔）： node.js
-
-1、路由调用123456var express = require(&amp;apos;express&amp;apos;);var app = express();app.get(&amp;apos;/&amp;apos;, function (req, res) &amp;#123;  res.send(&amp;apos;Hello world!&amp;apos;);&amp;#125;);ap">
+    <meta name="description" content="node.js知识点
+1、路由调用123456var express = require(&amp;apos;express&amp;apos;);var app = express();app.get(&amp;apos;/&amp;apos;, function (req, res) &amp;#123;  res.send(&amp;apos;Hello world!&amp;apos;);&amp;#125;);app.listen(3000);
+在r">
 <meta property="og:type" content="article">
 <meta property="og:title" content="node.js知识点">
 <meta property="og:url" content="http://yoursite.com/2017/06/29/node.js知识点/index.html">
 <meta property="og:site_name" content="白兔仔是爱学习的笨小孩的博客">
-<meta property="og:description" content="node.js知识点标签（空格分隔）： node.js
-
-1、路由调用123456var express = require(&amp;apos;express&amp;apos;);var app = express();app.get(&amp;apos;/&amp;apos;, function (req, res) &amp;#123;  res.send(&amp;apos;Hello world!&amp;apos;);&amp;#125;);ap">
-<meta property="og:updated_time" content="2017-06-29T14:12:30.974Z">
+<meta property="og:description" content="node.js知识点
+1、路由调用123456var express = require(&amp;apos;express&amp;apos;);var app = express();app.get(&amp;apos;/&amp;apos;, function (req, res) &amp;#123;  res.send(&amp;apos;Hello world!&amp;apos;);&amp;#125;);app.listen(3000);
+在r">
+<meta property="og:updated_time" content="2017-06-29T14:19:16.364Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node.js知识点">
-<meta name="twitter:description" content="node.js知识点标签（空格分隔）： node.js
-
-1、路由调用123456var express = require(&amp;apos;express&amp;apos;);var app = express();app.get(&amp;apos;/&amp;apos;, function (req, res) &amp;#123;  res.send(&amp;apos;Hello world!&amp;apos;);&amp;#125;);ap">
+<meta name="twitter:description" content="node.js知识点
+1、路由调用123456var express = require(&amp;apos;express&amp;apos;);var app = express();app.get(&amp;apos;/&amp;apos;, function (req, res) &amp;#123;  res.send(&amp;apos;Hello world!&amp;apos;);&amp;#125;);app.listen(3000);
+在r">
 
     
     <link rel="alternative" href="/atom.xml" title="白兔仔是爱学习的笨小孩的博客" type="application/atom+xml">
@@ -106,8 +106,7 @@
 		
 		</div>
 		
-		<h1 id="node-js知识点"><a href="#node-js知识点" class="headerlink" title="node.js知识点"></a>node.js知识点</h1><p>标签（空格分隔）： node.js</p>
-<hr>
+		<h1 id="node-js知识点"><a href="#node-js知识点" class="headerlink" title="node.js知识点"></a>node.js知识点</h1><hr>
 <p>1、路由调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line">app.get(&apos;/&apos;, function (req, res) &#123;</div><div class="line">  res.send(&apos;Hello world!&apos;);</div><div class="line">&#125;);</div><div class="line">app.listen(3000);</div></pre></td></tr></table></figure></p>
 <p>在routes/index.js中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">module.exports=function(app)&#123;</div><div class="line">     app.get(&apos;/&apos;, function (req, res) &#123;</div><div class="line">  res.render(&apos;index&apos;,&#123;title:&apos;Express&apos;&#125;);</div><div class="line">&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>然后在app.js中引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var express=require(&apos;express&apos;);</div><div class="line">var app=express();</div><div class="line">var routes=require(&apos;./routes/index&apos;);</div><div class="line">routes(app);</div></pre></td></tr></table></figure></p>
