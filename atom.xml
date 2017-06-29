@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-19T14:02:17.587Z</updated>
+  <updated>2017-06-29T14:12:30.974Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>node.js知识点</title>
+    <link href="http://yoursite.com/2017/06/29/node.js%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>http://yoursite.com/2017/06/29/node.js知识点/</id>
+    <published>2017-06-29T14:10:38.613Z</published>
+    <updated>2017-06-29T14:12:30.974Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="node-js知识点"><a href="#node-js知识点" class="headerlink" title="node.js知识点"></a>node.js知识点</h1><p>标签（空格分隔）： node.js</p>
+<hr>
+<p>1、路由调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line">app.get(&apos;/&apos;, function (req, res) &#123;</div><div class="line">  res.send(&apos;Hello world!&apos;);</div><div class="line">&#125;);</div><div class="line">app.listen(3000);</div></pre></td></tr></table></figure></p>
+<p>在routes/index.js中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">module.exports=function(app)&#123;</div><div class="line">     app.get(&apos;/&apos;, function (req, res) &#123;</div><div class="line">  res.render(&apos;index&apos;,&#123;title:&apos;Express&apos;&#125;);</div><div class="line">&#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后在app.js中引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var express=require(&apos;express&apos;);</div><div class="line">var app=express();</div><div class="line">var routes=require(&apos;./routes/index&apos;);</div><div class="line">routes(app);</div></pre></td></tr></table></figure></p>
+<p>module.exports声明了一个函数，app.js中这个函数叫routes，函数的参数是<br>app，意思就是把app.js中的app给了index.js,然后routes（app）调用这个导出的函数。也就是在index.js中运行了</p>
+<p>2.exports用法</p>
+<ul>
+<li>使用exports对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">var myMsg=&quot;hello&quot;;</div><div class="line">var funcname=function()&#123;</div><div class="line">return &apos;function1&apos;;&#125;;</div><div class="line">exports.msg=myMsg;</div><div class="line">exports.func=funcname;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>调用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var foo=require(&apos;./foo.js&apos;);  //foo模块对象</div><div class="line">console.log(foo.msg);</div><div class="line">console.log(foo.func());</div></pre></td></tr></table></figure></p>
+<ul>
+<li><p>将模块定义为类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">var _name,_age;</div><div class="line">var name=&apos;&apos;,age=0;</div><div class="line">//模块对象的构造函数</div><div class="line">var foo=function(name,age)&#123;</div><div class="line">    _name=name;</div><div class="line">    _age=age;</div><div class="line">&#125;</div><div class="line">//获取私有变量_name的变量值</div><div class="line">foo.prototype.Getname=function()&#123;</div><div class="line">return _name;&#125;</div><div class="line">//设置私有变量_name的变量值</div><div class="line">foo.prototype.Setname=function(name)&#123;</div><div class="line">_name=name;</div><div class="line">&#125;</div><div class="line">foo.prototype.name=name;</div><div class="line">foo.prototype.age=age;</div><div class="line">module.exports=foo;</div></pre></td></tr></table></figure>
+<p>_name、_age是私有变量，name、age是公有变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var foo=require(&apos;./foo.js&apos;);</div><div class="line">var myFoo=new foo(&quot;Tom&quot;,40);//新建模块对象</div><div class="line">myFoo.name=&quot;Bob&quot;;//可以直接对公有变量进行设置,而私有变量通过函数</div><div class="line">myFoo.GetName();</div></pre></td></tr></table></figure>
+</li>
+<li><p>关于prototype的问题<br>在JavaScript中，prototype对象是实现面向对象的一个重要机制。每个函数就是一个对象（Function），函数对象都有一个子对象prototype对象，类是以函数的形式来定义的。prototype表示该函数的原型，也表示一个类的成员的集合。在通过new创建一个类的实例对象的时候，prototype对象的成员都成为实例化对象的成员。<br>1、该对象被类所引用，只有函数对象才可引用；<br>2、在new实例化后，其成员被实例化，实例对象方可调用。<br>同时，函数是一个对象，函数对象若直接声明成员，不用被实例化即可调用。<br>也就是说prototype声明的函数方法，要new一个类之后才可以调用，例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">module.exports=User;</div><div class="line">User.prototype.save = function(callback)</div><div class="line">User.get=function(name,callback)</div></pre></td></tr></table></figure>
+<p>在调用时</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">var User = require(&apos;../models/user.js&apos;);</div><div class="line">var newUser= new User(&#123;    //新建模块对象</div><div class="line">name:req.body.name,</div><div class="line">password:req.body.password,</div><div class="line">email:req.body.email</div><div class="line">  &#125;);</div><div class="line">User.get(newUser.name,function(err,user)&#123; //get函数可以不用实例化调用，save要new一个类之后才可以调用</div><div class="line">...</div><div class="line">newUser.save(function(err,user)&#123;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>3.MongoDB用法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">db.open(callback)</div><div class="line">function(err,db)&#123;...自己定义怎么继续运行的函数,就像与现在有了db了继续吧...&#125;//callback回调函数</div></pre></td></tr></table></figure></p>
+<p>再该回调函数中，可以使用两个参数，其中第一个参数为连接数据库失败时抛出的错误对象，第二个参数为一个Db对象，代表连接成功的数据库，当连接数据库失败时，该参数值为null。collection同理</p>
+<p>4.session<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">//app.js中</div><div class="line">var settings = require(&apos;./settings&apos;);</div><div class="line">var session = require(&apos;express-session&apos;);</div><div class="line">var MongoStore = require(&apos;connect-mongo&apos;)(session);</div><div class="line">app.use(session(&#123;</div><div class="line">secret:settings.cookieSecret,</div><div class="line">key:settings.db,</div><div class="line">cookie:&#123;maxAge:1000*60*60*24*30&#125;,</div><div class="line">store:new MongoStore(&#123;</div><div class="line">db: settings.db,</div><div class="line">host:settings.host,</div><div class="line">port:settings.port</div><div class="line">&#125;)</div><div class="line">&#125;));</div><div class="line">//req.session.username=&quot;liulignnui&quot;;</div><div class="line">//index.js中处理</div><div class="line">req.session.user=newUser;</div><div class="line">user:req.session.user,</div><div class="line">//ejs文件可以调用</div><div class="line">&lt;%if(user)&#123;%&gt;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;node-js知识点&quot;&gt;&lt;a href=&quot;#node-js知识点&quot; class=&quot;headerlink&quot; title=&quot;node.js知识点&quot;&gt;&lt;/a&gt;node.js知识点&lt;/h1&gt;&lt;p&gt;标签（空格分隔）： node.js&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;1、路由调用&lt;b
+    
+    </summary>
+    
+      <category term="node.js" scheme="http://yoursite.com/categories/node-js/"/>
+    
+    
+      <category term="node.js" scheme="http://yoursite.com/tags/node-js/"/>
+    
+      <category term="编程" scheme="http://yoursite.com/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>红楼一梦</title>
